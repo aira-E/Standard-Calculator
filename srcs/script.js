@@ -8,6 +8,7 @@ const clearAllEl = document.querySelector(".all-clear");
 const clearLastEl = document.querySelector(".last-entity-clear");
 const Mplus = document.querySelector(".Mplus");
 const Mminus = document.querySelector(".Mminus");
+const MRE = document.querySelector(".MR");
 const binButton = document.querySelector(".bin");
 
 
@@ -153,33 +154,19 @@ function clickEqual() {
   equalEl.click();
 }
 
-
-// Function to add the current result to memory (M+)
-function addToMemory() {
-  if (result !== null) {
-    memoryValue += result;
+Mplus.addEventListener("click", () => {
+  if (dis2Num) {
+      memoryValue += parseFloat(dis2Num);
   }
-}
+});
 
-// Function to subtract the current result from memory (M-)
-function subtractFromMemory() {
-  if (result !== null) {
-    memoryValue -= result;
+Mminus.addEventListener("click", () => {
+  if (dis2Num) {
+      memoryValue -= parseFloat(dis2Num);
   }
-}
+});
 
-Mplus.addEventListener("click", addToMemory);
-Mminus.addEventListener("click", subtractFromMemory);
-
-
-// // Mplus.addEventListener("clcik", () => {
-// //   if (result){
-// //     memory += parseFloat(result);
-// //   }
-// // })
-
-// // Mminus.addEventListener("clcik", () => {
-// //   if (result){
-// //     memory -= parseFloat(result);
-// //   }
-// // })
+MRE.addEventListener("click", () => {
+  dis2Num = memoryValue.toString();
+  display2El.innerText = dis2Num;
+});
